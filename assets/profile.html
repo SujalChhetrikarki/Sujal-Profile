@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Resume</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        background: #1e1e2e;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        padding: 20px;
+        overflow: hidden;
+      }
+
+      body {
+        background: #1e1e2e;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+        overflow: auto;
+      }
+
+      .resume-container {
+        width: 100vw;
+        height: 100vh;
+        max-width: 100%;
+        max-height: 100%;
+        background: #ffffff;
+        border-radius: 0;
+        box-shadow: none;
+        display: flex;
+        flex-direction: row;
+        transition: 0.5s;
+        overflow: hidden;
+      }
+
+      /* Sidebar */
+      .sidebar {
+        width: 100%;
+        background: linear-gradient(135deg, #6a11cb, #2575fc);
+        color: white;
+        padding: 20px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .sidebar img {
+        width: 80px;
+        border-radius: 50%;
+        border: 3px solid white;
+      }
+      .sidebar h2 {
+        margin: 8px 0;
+        font-size: 16px;
+      }
+      .sidebar p {
+        font-size: 12px;
+      }
+      .contact-info p {
+        font-size: 12px;
+        margin: 3px 0;
+      }
+      .contact-info a {
+        color: white;
+        text-decoration: none;
+      }
+
+      /* Time Display */
+      .time-container {
+        margin-top: 10px;
+        font-size: 14px;
+        font-weight: bold;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 6px 12px;
+        border-radius: 8px;
+      }
+
+      /* Sidebar Menu */
+      .menu {
+        margin-top: 15px;
+        width: 100%;
+        text-align: center;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+      }
+      .menu button {
+        flex: 1;
+        padding: 8px;
+        background: transparent;
+        border: none;
+        color: white;
+        font-size: 14px;
+        cursor: pointer;
+        transition: 0.3s;
+        text-align: center;
+      }
+      .menu button:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+
+      /* Content Section */
+      .content-container {
+        flex: 1;
+        width: 100%;
+        overflow-y: auto;
+        background: #f4f4f4;
+        padding: 15px;
+      }
+      .content {
+        display: none;
+      }
+      .section h3 {
+        background: #2575fc;
+        color: white;
+        padding: 6px;
+        border-radius: 5px;
+        font-size: 14px;
+      }
+      ul {
+        list-style: none;
+        padding-left: 15px;
+      }
+      ul li {
+        margin: 4px 0;
+        padding: 6px;
+        background: #e3e3e3;
+        border-radius: 5px;
+        font-size: 12px;
+      }
+      .section p {
+        background: #e8e8e8;
+        padding: 8px;
+        border-radius: 5px;
+        font-size: 12px;
+        text-align: center;
+      }
+      .default-message {
+        text-align: center;
+        font-size: 14px;
+        color: #555;
+        padding: 15px;
+      }
+
+      /* Responsive */
+      @media (min-width: 768px) {
+        .resume-container {
+          flex-direction: row;
+          height: 50vh;
+        }
+        .sidebar {
+          width: 35%;
+        }
+        .menu {
+          flex-direction: column;
+        }
+        .menu button {
+          width: 100%;
+          text-align: left;
+          padding: 10px;
+        }
+        .content-container {
+          width: 65%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="resume-container">
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <img src="CV.jpg" alt="Profile Picture" />
+        <h2>Sujal Chhetri Karki</h2>
+        <p>Student | Aspiring IT Professional</p>
+        <div class="contact-info">
+          <p>
+            📧
+            <a href="mailto:xetrisujal2003@gmail.com"
+              >xetrisujal2003@gmail.com</a
+            >
+          </p>
+          <p>📍 Jeetpur-Simara, Bara</p>
+        </div>
+        <div class="time-container">
+          <p id="current-time">Loading...</p>
+        </div>
+        <div class="menu">
+          <button onclick="showSection('education')">🎓 Education</button>
+          <button onclick="showSection('experience')">💼 Experience</button>
+          <button onclick="showSection('skills')">🛠 Skills</button>
+          <button onclick="showSection('projects')">📂 Projects</button>
+        </div>
+      </div>
+
+      <!-- Content Container -->
+      <div class="content-container">
+        <div id="default-message" class="default-message">
+          Motivated IT beginner eager to start a rewarding career in IT.
+          Passionate about technology and teamwork.
+        </div>
+
+        <div class="content" id="education">
+          <div class="section">
+            <h3>Education</h3>
+            <p>Optional Math - Lotus Academy (BLE & SEE)</p>
+            <p>+2 Management(Computer) - Shree Nepal Rastrya sec. School</p>
+            <p>
+              Bachelor of Computer Application (BCA) - Vedas College
+              (2022-Present)
+            </p>
+          </div>
+        </div>
+
+        <div class="content" id="experience">
+          <div class="section">
+            <h3>Experience</h3>
+            <p>
+              Hulas Steel (Intern) - Assisted in IT support and server
+              maintenance. (3 Months)
+            </p>
+            <p>Teaching - Account & Computer Science (1 year)</p>
+          </div>
+        </div>
+
+        <div class="content" id="skills">
+          <div class="section">
+            <h3>Skills</h3>
+            <ul>
+              <li>Design Thinking</li>
+              <li>Problem-Solving</li>
+              <li>Networking (TCP/IP, DNS, DHCP)</li>
+              <li>Communication</li>
+              <li>Web Development (HTML, CSS, JavaScript)</li>
+              <li>Database Management (SQL, MySQL)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="content" id="projects">
+          <div class="section">
+            <h3>Projects</h3>
+            <p>
+              Portfolio Website - Developed a personal portfolio website using
+              HTML, CSS, and JavaScript.
+            </p>
+            <p>
+              Inventory Management System - Created a database-driven inventory
+              management system using SQL and PHP.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript for Dynamic Time & Navigation -->
+    <script>
+      function updateTime() {
+        var now = new Date();
+        var hours = now.getHours().toString().padStart(2, "0");
+        var minutes = now.getMinutes().toString().padStart(2, "0");
+        var seconds = now.getSeconds().toString().padStart(2, "0");
+        document.getElementById("current-time").textContent =
+          hours + ":" + minutes + ":" + seconds;
+      }
+      setInterval(updateTime, 1000);
+      updateTime();
+
+      function showSection(sectionId) {
+        document
+          .querySelectorAll(".content")
+          .forEach((el) => (el.style.display = "none"));
+        document.getElementById(sectionId).style.display = "block";
+        document.getElementById("default-message").style.display = "none";
+      }
+    </script>
+  </body>
+</html>
