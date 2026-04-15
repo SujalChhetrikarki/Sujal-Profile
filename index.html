@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -12,15 +12,13 @@
       rel="stylesheet"
     />
 
-    <title>Sujal's Portfolio</title>
+    <title>Sujal Chhetri Karki | Portfolio</title>
   </head>
   <body>
     <!--===== HEADER =====-->
-    <header class="l-header">
+    <header class="l-header" id="header">
       <nav class="nav bd-grid">
-        <div>
-          <a href="#" class="nav__logo"><i>Sujal</i></a>
-        </div>
+        <a href="#home" class="nav__logo">Sujal</a>
 
         <div class="nav__menu" id="nav-menu">
           <ul class="nav__list">
@@ -42,7 +40,7 @@
           </ul>
         </div>
 
-        <div class="nav__toggle" id="nav-toggle">
+        <div class="nav__toggle" id="nav-toggle" aria-label="Open menu">
           <i class="bx bx-menu"></i>
         </div>
       </nav>
@@ -50,73 +48,94 @@
 
     <main class="l-main">
       <!--===== HOME =====-->
-      <section class="home bd-grid" id="home">
-        <div class="home__data">
-          <h1 class="home__title">
-            Hi, I'am <br /><span class="home__title-color"
-              >Sujal Chhetri Karki</span
-            ><br />
-            <p>IT enthusiast..</p>
-          </h1>
+      <section class="home section" id="home">
+        <div class="home__container bd-grid">
+          <div class="home__data">
+            <span class="home__subtitle">Hello, I'm</span>
+            <h1 class="home__title">Sujal Chhetri Karki</h1>
+            <p class="home__description">
+              A motivated IT enthusiast building useful web experiences with a
+              strong focus on learning, accessibility, and polished design.
+            </p>
 
-          <a href="#contact" class="button">Give Your Information</a>
-          <a href="assets/Sujal_s_CV.pdf" download class="button">Download CV</a>
-        </div>
+            <div class="home__buttons">
+              <a href="#contact" class="button">Contact Me</a>
+              <a href="assets/Sujal_s_CV.pdf" download class="button button--outline">Download CV</a>
+            </div>
 
-        <div class="home__social">
-            <a href="https://www.facebook.com/profile.php?id=100072413443915" class="home__social-icon"><i class="bx bxl-facebook"></i ></a>
-            <a href="https://www.instagram.com/sujal_karki_/" class="home__social-icon"><i class="bx bxl-instagram"></i ></a>
-          <a href="https://www.linkedin.com/in/sujal-chhetri-karki-2466ba316/" class="home__social-icon"><i class="bx bxl-linkedin"></i></a>
-          <a href="https://github.com/SujalChhetrikarki" class="home__social-icon"><i class="bx bxl-github"></i></a>
-        </div>
+            <div class="home__stats">
+              <div class="home__stat-card">
+                <span>2+</span>
+                <p>Projects delivered</p>
+              </div>
+              <div class="home__stat-card">
+                <span>1+</span>
+                <p>Years of practice</p>
+              </div>
+            </div>
+          </div>
 
-        <div class="home__img">
-          <svg
-            class="home__blob"
-            viewBox="0 0 479 467"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-          >
-            <mask id="mask0" mask-type="alpha">
-              <path
-                d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"
+          <div class="home__visual">
+            <div class="home__card">
+              <img
+                src="assets/img/Screenshot_2025-03-20_160318-removebg-preview.png"
+                alt="Sujal profile image"
+                class="home__profile"
               />
-            </mask>
-            <g mask="url(#mask0)">
-              <path
-                d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"
-              />
-              <image
-                class="home__blob-img"
-                x="50"
-                y="60"
-                href="assets/img/Screenshot_2025-03-20_160318-removebg-preview.png"
-              />
-            </g>
-          </svg>
+            </div>
+
+            <div class="home__social">
+              <a href="https://www.facebook.com/profile.php?id=100072413443915" class="home__social-icon" aria-label="Facebook">
+                <i class="bx bxl-facebook"></i>
+              </a>
+              <a href="https://www.instagram.com/sujal_karki_/" class="home__social-icon" aria-label="Instagram">
+                <i class="bx bxl-instagram"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/sujal-chhetri-karki-2466ba316/" class="home__social-icon" aria-label="LinkedIn">
+                <i class="bx bxl-linkedin"></i>
+              </a>
+              <a href="https://github.com/SujalChhetrikarki" class="home__social-icon" aria-label="GitHub">
+                <i class="bx bxl-github"></i>
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
       <!--===== ABOUT =====-->
       <section class="about section" id="about">
-        <h2 class="section-title">About</h2>
+        <h2 class="section-title">About Me</h2>
 
         <div class="about__container bd-grid">
-          <div class="about__img">
-            <img src="assets/img/about.png" alt="" />
+          <div class="about__content">
+            <h2 class="about__subtitle">I am Sujal Chhetri Karki</h2>
+            <p class="about__description">
+              Motivated IT beginner eager to launch a rewarding career in the
+              Information Technology field. I enjoy solving problems, creating
+              clean interfaces, and learning new tools every day.
+            </p>
+
+            <div class="about__cards">
+              <article class="about__card">
+                <i class="bx bx-briefcase about__card-icon"></i>
+                <h3>Entry-level Ready</h3>
+                <p>Well-prepared for internships and junior developer roles.</p>
+              </article>
+              <article class="about__card">
+                <i class="bx bx-code about__card-icon"></i>
+                <h3>Modern Web</h3>
+                <p>HTML, CSS, JavaScript and practical project experience.</p>
+              </article>
+              <article class="about__card">
+                <i class="bx bx-heart about__card-icon"></i>
+                <h3>Learning Focused</h3>
+                <p>Curious, collaborative, and always improving.</p>
+              </article>
+            </div>
           </div>
 
-          <div>
-            <h2 class="about__subtitle">I'am Sujal Chhetri Karki</h2>
-            <p class="about__text">
-              <i>
-                Motivated IT beginner eager to commence on a rewarding career in
-                the Information Technology field. Seeking an entry-level
-                position where I can apply my foundational knowledge, passion
-                for technology, and willingness to learn to contribute to a
-                collaborative and innovative team.</i
-              >
-            </p>
+          <div class="about__img">
+            <img src="assets/img/about.png" alt="Sujal working at a computer" />
           </div>
         </div>
       </section>
@@ -126,61 +145,63 @@
         <h2 class="section-title">Skills</h2>
 
         <div class="skills__container bd-grid">
-          <div>
-            <h2 class="skills__subtitle">Profesional Skills</h2>
-            <p class="skills__text">
-              I have a good understanding of the following technologies and
-              tools.
-            </p>
-            <ul style="list-style-type: disc">
-              <li>Design Thinking</li>
-              <li>Problem-Solving</li>
-              <li>Computer Literacy</li>
-              <li>Project Management</li>
-              <li>Communication Skills</li>
-              <li>Basic Networking (TCP/IP, DNS, DHCP)</li>
+          <div class="skills__content">
+            <h3 class="skills__subtitle">Technical Skills</h3>
+            <div class="skills__list">
+              <span>HTML5</span>
+              <span>CSS3</span>
+              <span>JavaScript</span>
+              <span>PHP</span>
+              <span>CMS</span>
+            </div>
+
+            <h3 class="skills__subtitle">Professional skills</h3>
+            <ul class="skills__points">
+              <li>Design thinking</li>
+              <li>Problem-solving</li>
+              <li>Communication</li>
+              <li>Project organization</li>
+              <li>Basic networking</li>
             </ul>
-            <br />
-            <div class="skills__data">
-              <div class="skills__names">
-                <span class="skills__name">HTML5</span>
-              </div>
-              <div class="skills__bar skills__html"></div>
-              <div>
-                <span class="skills__percentage">95%</span>
-              </div>
-            </div>
-            <div class="skills__data">
-              <div class="skills__names">
-                <span class="skills__name">php</span>
-              </div>
-              <div class="skills__bar skills__css"></div>
-              <div>
-                <span class="skills__percentage">75%</span>
-              </div>
-            </div>
-            <div class="skills__data">
-              <div class="skills__names">
-                <span class="skills__name">JAVASCRIPT</span>
-              </div>
-              <div class="skills__bar skills__js"></div>
-              <div>
-                <span class="skills__percentage">65%</span>
-              </div>
-            </div>
-            <div class="skills__data">
-              <div class="skills__names">
-                <span class="skills__name">CMS</span>
-              </div>
-              <div class="skills__bar skills__ux"></div>
-              <div>
-                <span class="skills__percentage">85%</span>
-              </div>
-            </div>
           </div>
 
-          <div>
-            <img src="assets/img/work3.jpg" alt="" class="skills__img" />
+          <div class="skills__progress">
+            <article class="skills__card">
+              <div class="skills__card-header">
+                <span>HTML5</span>
+                <span>95%</span>
+              </div>
+              <div class="skills__bar-wrapper">
+                <div class="skills__bar skills__html"></div>
+              </div>
+            </article>
+            <article class="skills__card">
+              <div class="skills__card-header">
+                <span>PHP</span>
+                <span>75%</span>
+              </div>
+              <div class="skills__bar-wrapper">
+                <div class="skills__bar skills__php"></div>
+              </div>
+            </article>
+            <article class="skills__card">
+              <div class="skills__card-header">
+                <span>JavaScript</span>
+                <span>65%</span>
+              </div>
+              <div class="skills__bar-wrapper">
+                <div class="skills__bar skills__js"></div>
+              </div>
+            </article>
+            <article class="skills__card">
+              <div class="skills__card-header">
+                <span>CMS</span>
+                <span>85%</span>
+              </div>
+              <div class="skills__bar-wrapper">
+                <div class="skills__bar skills__cms"></div>
+              </div>
+            </article>
           </div>
         </div>
       </section>
@@ -190,28 +211,33 @@
         <h2 class="section-title">Work</h2>
 
         <div class="work__container bd-grid">
-            <div class="work__item" style="text-align: center;">
-                <a href="assets/img/PROJECT 1.png" class="work__img" download>
-                    <img src="assets/img/PROJECT 1.png" alt="" style="width: 200px; height: 200px; object-fit: cover;" />
-                </a>
-                <a href="assets/T-shirt Shopping System.pdf" download class="download-btn" style="display: inline-block; margin-top: 5px; padding: 5px 10px; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 5px; font-size: 14px;">Download Documents</a>
+          <article class="work__card">
+            <img src="assets/img/PROJECT 1.png" alt="T-shirt shopping system" class="work__img" />
+            <div class="work__overlay">
+              <h3>T-shirt Shopping System</h3>
+              <p>PHP-based e-commerce project with product browsing and order flow.</p>
+              <a href="assets/T-shirt Shopping System.pdf" download class="button button--small">Download Details</a>
             </div>
-        
-            <div class="work__item" style="text-align: center;">
-                <a href="assets/img/PROJECT 2.png" class="work__img" download>
-                    <img src="assets/img/PROJECT 2.png" alt="" style="width: 200px; height: 200px; object-fit: cover;" />
-                </a>
-                <a href="assets/profile.html" download class="download-btn" style="display: inline-block; margin-top: 5px; padding: 5px 10px; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 5px; font-size: 14px;">Download File</a>
+          </article>
+
+          <article class="work__card">
+            <img src="assets/img/PROJECT 2.png" alt="Profile website" class="work__img" />
+            <div class="work__overlay">
+              <h3>Profile Website</h3>
+              <p>A personal portfolio website to present skills, work, and contact details.</p>
+              <a href="assets/profile.html" class="button button--small">View Project</a>
             </div>
-        
-             <div class="work__item " style="text-align: center;">
-                <a href="assets/img/PROJECT 3.png" class="work__img" download>
-                    <img src="assets/img/PROJECT 3.png" alt="" style="width: 200px; height: 200px; object-fit: cover;" />
-                </a>
-                <a href="assets/Student Performance Evaluation System.pdf" download class="download-btn" style="display: inline-block; margin-top: 5px; padding: 5px 10px; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 5px; font-size: 14px;">Download File</a>
+          </article>
+
+          <article class="work__card">
+            <img src="assets/img/PROJECT 3.png" alt="Student evaluation system" class="work__img" />
+            <div class="work__overlay">
+              <h3>Student Performance Evaluation System</h3>
+              <p>A project that evaluates student performance and generates reports.</p>
+              <a href="assets/Student Performance Evaluation System.pdf" download class="button button--small">Download Details</a>
+            </div>
+          </article>
         </div>
-        
-          
       </section>
 
       <!--===== CONTACT =====-->
@@ -219,21 +245,25 @@
         <h2 class="section-title">Contact</h2>
 
         <div class="contact__container bd-grid">
-          <form action="" class="contact__form">
-            <input type="text" placeholder="Name" class="contact__input" />
-            <input type="mail" placeholder="Email" class="contact__input" />
-            <textarea
-              name=""
-              id=""
-              cols="0"
-              rows="10"
-              class="contact__input"
-            ></textarea>
-            <input
-              type="button"
-              value="Sent"
-              class="contact__button button"
-            />
+          <div class="contact__card contact__info">
+            <span class="contact__tag">Let's connect</span>
+            <h3 class="contact__subtitle">Message me on WhatsApp</h3>
+            <p class="contact__description">
+              Want to discuss a project, internship opportunity, or available
+              roles? Fill the form and WhatsApp will open with your message.
+            </p>
+            <div class="contact__details">
+              <div><i class="bx bx-envelope"></i> sujalchhetrikarki@gmail.com</div>
+              <div><i class="bx bx-phone"></i> +977 9845808198</div>
+            </div>
+          </div>
+
+          <form id="contact-form" class="contact__form">
+            <input type="text" name="name" placeholder="Your Name" class="contact__input" required />
+            <input type="email" name="email" placeholder="Your Email" class="contact__input" required />
+            <textarea name="message" placeholder="Your Message" rows="6" class="contact__input" required></textarea>
+            <button type="submit" class="contact__button button">Send WhatsApp</button>
+            <p class="contact__notice" aria-live="polite"></p>
           </form>
         </div>
       </section>
@@ -241,14 +271,22 @@
 
     <!--===== FOOTER =====-->
     <footer class="footer">
-      <p class="footer__title">Sujal's linked Profiles</p>
+      <p class="footer__title">My linked profiles</p>
       <div class="footer__social">
-        <a href="https://www.facebook.com/profile.php?id=100072413443915" class="footer__icon"><i class="bx bxl-facebook"></i></a>
-        <a href="https://www.instagram.com/sujal_karki_/" class="footer__icon"><i class="bx bxl-instagram"></i></a>
-        <a href="https://www.linkedin.com/in/sujal-chhetri-karki-2466ba316/" class="footer__icon"><i class="bx bxl-linkedin"></i></a>
-        <a href="https://github.com/SujalChhetrikarki" class="footer__icon"><i class="bx bxl-github"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=100072413443915" class="footer__icon" aria-label="Facebook">
+          <i class="bx bxl-facebook"></i>
+        </a>
+        <a href="https://www.instagram.com/sujal_karki_/" class="footer__icon" aria-label="Instagram">
+          <i class="bx bxl-instagram"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/sujal-chhetri-karki-2466ba316/" class="footer__icon" aria-label="LinkedIn">
+          <i class="bx bxl-linkedin"></i>
+        </a>
+        <a href="https://github.com/SujalChhetrikarki" class="footer__icon" aria-label="GitHub">
+          <i class="bx bxl-github"></i>
+        </a>
       </div>
-      <p class="footer__copy">&#169; SujalChhetriKarki4. All rigths reserved</p>
+      <p class="footer__copy">&#169; 2026 Sujal Chhetri Karki. All rights reserved.</p>
     </footer>
 
     <!--===== SCROLL REVEAL =====-->
