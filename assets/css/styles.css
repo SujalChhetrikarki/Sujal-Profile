@@ -119,11 +119,12 @@ textarea {
   height: var(--header-height);
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 0.75rem;
   width: 100%;
   min-height: var(--header-height);
   padding-inline: 0.5rem;
+  position: relative;
 }
 
 .nav__logo {
@@ -131,6 +132,13 @@ textarea {
   font-size: 1.25rem;
   font-weight: var(--font-bold);
   white-space: nowrap;
+  position: absolute;
+  left: 0.75rem;
+}
+
+.nav__toggle {
+  position: absolute;
+  right: 0.75rem;
 }
 
 .nav__menu {
@@ -669,17 +677,6 @@ textarea {
   .nav__item + .nav__item {
     margin-top: 1rem;
     margin-left: 0;
-  }
-
-.nav__item,
-.nav__link {
-  width: 100%;
-}
-
-.nav__link {
-  display: inline-block;
-}
-
   }
 
   .section {
