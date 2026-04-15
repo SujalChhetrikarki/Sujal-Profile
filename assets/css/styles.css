@@ -220,6 +220,7 @@ textarea {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+  justify-content: center;
 }
 
 .button {
@@ -232,6 +233,7 @@ textarea {
   border-radius: 999px;
   font-weight: var(--font-semi);
   transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+  min-width: 155px;
 }
 
 .button:hover {
@@ -641,12 +643,21 @@ textarea {
 @media screen and (max-width: 575px) {
   .home__buttons {
     flex-direction: column;
-    align-items: stretch;
-  }
+     align-items: center;
+   }
 
-  .home__title {
-    font-size: clamp(2rem, 10vw, 2.8rem);
-  }
+   .home__buttons .button {
+     width: 100%;
+     max-width: 320px;
+   }
+
+   .home__card {
+     width: 100%;
+   }
+
+   .home__title {
+     font-size: clamp(2rem, 10vw, 2.8rem);
+   }
 
   .home__description {
     margin: 1rem 0 1.5rem;
@@ -666,12 +677,9 @@ textarea {
   }
 
   .nav__menu {
-    width: min(96vw, 340px);
-    padding: 1.5rem;
-  }
-
-  .nav__list {
-    gap: 1rem;
+     width: 100vw;
+     max-width: 100%;
+     left: 0;
   }
 
   .nav__item + .nav__item {
