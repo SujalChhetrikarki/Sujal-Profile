@@ -1341,3 +1341,38 @@ body.dark-mode #particles-canvas {
     max-width: 1140px;
   }
 }
+
+.terminal-logo {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: monospace;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+.terminal-prompt {
+  color: #5DCAA5;
+  font-weight: 400;
+}
+
+.terminal-name {
+  color: var(--first-color);
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.terminal-cursor {
+  display: inline-block;
+  width: 9px;
+  height: 17px;
+  background-color: #52a6db;
+  border-radius: 2px;
+  vertical-align: middle;
+  animation: blink-cursor 1s step-end infinite;
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
