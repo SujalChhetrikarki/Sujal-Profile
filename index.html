@@ -13,6 +13,7 @@
     />
 
     <title>Sujal Chhetri Karki | Portfolio</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>" />
   </head>
   <body>
     <!--===== HEADER =====-->
@@ -43,12 +44,23 @@
         <div class="nav__toggle" id="nav-toggle" aria-label="Open menu">
           <i class="bx bx-menu"></i>
         </div>
+
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+          <i class="bx bx-moon"></i>
+        </button>
       </nav>
     </header>
 
     <main class="l-main">
       <!--===== HOME =====-->
       <section class="home section" id="home">
+        <canvas id="particles-canvas"></canvas>
+        <div class="floating-shapes">
+          <div class="shape shape-1"></div>
+          <div class="shape shape-2"></div>
+          <div class="shape shape-3"></div>
+        </div>
+        <div class="home__bg"></div>
         <div class="home__container bd-grid">
           <div class="home__data">
             <span class="home__subtitle">Hello, I'm</span>
@@ -59,8 +71,8 @@
             </p>
 
             <div class="home__buttons">
-              <a href="#contact" class="button">Contact Me</a>
-              <a href="assets/Sujal_s_CV.pdf" download class="button button--outline">Download CV</a>
+              <a href="#contact" class="button">Contact Me <i class="bx bx-right-arrow-alt"></i></a>
+              <a href="assets/Sujal_s_CV.pdf" download class="button button--outline">Download CV <i class="bx bx-download"></i></a>
             </div>
 
             <div class="home__stats">
@@ -82,6 +94,10 @@
                 alt="Sujal profile image"
                 class="home__profile"
               />
+              <div class="home__card-badge">
+                <i class="bx bx-code-alt"></i>
+                <span>Open to Work</span>
+              </div>
             </div>
 
             <div class="home__social">
@@ -100,10 +116,23 @@
             </div>
           </div>
         </div>
+        <div class="home__scroll">
+          <a href="#about" class="home__scroll-link">
+            <span>Scroll down</span>
+            <i class="bx bx-mouse"></i>
+          </a>
+        </div>
+
+        <div class="swipe-hint">
+          <i class="bx bx-chevron-left"></i>
+          <span>Swipe to navigate</span>
+          <i class="bx bx-chevron-right"></i>
+        </div>
       </section>
 
       <!--===== ABOUT =====-->
       <section class="about section" id="about">
+        <div class="section__bg"></div>
         <h2 class="section-title">About Me</h2>
 
         <div class="about__container bd-grid">
@@ -142,6 +171,7 @@
 
       <!--===== SKILLS =====-->
       <section class="skills section" id="skills">
+        <div class="section__bg"></div>
         <h2 class="section-title">Skills</h2>
 
         <div class="skills__container bd-grid">
@@ -209,6 +239,7 @@
 
       <!--===== WORK =====-->
       <section class="work section" id="work">
+        <div class="section__bg"></div>
         <h2 class="section-title">Work</h2>
 
         <div class="work__container bd-grid">
@@ -243,6 +274,7 @@
 
       <!--===== CONTACT =====-->
       <section class="contact section" id="contact">
+        <div class="section__bg"></div>
         <h2 class="section-title">Contact</h2>
 
         <div class="contact__container bd-grid">
@@ -262,7 +294,7 @@
             <input type="text" name="name" placeholder="Your Name" class="contact__input" required />
             <input type="email" name="email" placeholder="Your Email" class="contact__input" required />
             <textarea name="message" placeholder="Your Message" rows="6" class="contact__input" required></textarea>
-            <button type="submit" class="contact__button button">Send WhatsApp</button>
+            <button type="submit" class="contact__button button">Send Message <i class="bx bx-send"></i></button>
             <p class="contact__notice" aria-live="polite"></p>
           </form>
         </div>
