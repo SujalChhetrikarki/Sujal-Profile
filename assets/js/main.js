@@ -4,8 +4,10 @@ const showMenu = (toggleId, navId) => {
     nav = document.getElementById(navId);
 
   if (toggle && nav) {
+    toggle.setAttribute("aria-expanded", "false");
     toggle.addEventListener("click", () => {
-      nav.classList.toggle("show");
+      const isOpen = nav.classList.toggle("show");
+      toggle.setAttribute("aria-expanded", isOpen.toString());
     });
   }
 };
@@ -13,6 +15,19 @@ showMenu("nav-toggle", "nav-menu");
 
 /*==================== REMOVE MENU MOBILE ====================*/
 const navLink = document.querySelectorAll(".nav__link");
+const navMenu = document.getElementById("nav-menu");
+const navToggle = document.getElementById("nav-toggle");
+
+if (navLink.length && navMenu) {
+  navLink.forEach((link) =>
+    link.addEventListener("click", () => {
+      if (navMenu.classList.contains("show")) {
+        navMenu.classList.remove("show");
+        if (navToggle) navToggle.setAttribute("aria-expanded", "false");
+      }
+    })
+  );
+}
 
 /*===== THEME TOGGLE (Unified) =====*/
 const themeBtn = document.getElementById("theme-toggle");
@@ -210,6 +225,14 @@ if (themeBtn && icon) {
   }
 
   document.addEventListener('click', (e) => ripple(e.clientX, e.clientY));
+  document.addEventListener(
+    'touchstart',
+    (e) => {
+      const touch = e.touches[0];
+      if (touch) ripple(touch.clientX, touch.clientY);
+    },
+    { passive: true }
+  );
 })();
 
 /*===== HEADER STYLE ON SECTION CHANGE =====*/
@@ -401,45 +424,5 @@ function animateParticles() {
 
 initParticles();
 animateParticles();
-
-
-/* ================= RIPPLE ================= */
-(function () {
-  const colors = ['#7F77DD', '#1D9E75', '#D85A30', '#378ADD', '#D4537E'];
-  let idx = 0;
-
-  function ripple(x, y) {
-    const color = colors[idx++ % colors.length];
-
-    const r = document.createElement('div');
-    Object.assign(r.style, {
-      position: 'fixed',
-      pointerEvents: 'none',
-      borderRadius: '50%',
-      border: '2.5px solid ' + color,
-      width: '0px',
-      height: '0px',
-      left: x + 'px',
-      top: y + 'px',
-      transform: 'translate(-50%, -50%)',
-      transition: '0.6s',
-      opacity: '0.8',
-      zIndex: '9999',
-    });
-
-    document.body.appendChild(r);
-
-    requestAnimationFrame(() => {
-      r.style.width = '140px';
-      r.style.height = '140px';
-      r.style.opacity = '0';
-    });
-
-    setTimeout(() => r.remove(), 600);
-  }
-
-  document.addEventListener('click', (e) => ripple(e.clientX, e.clientY));
-
-})();
 
 
