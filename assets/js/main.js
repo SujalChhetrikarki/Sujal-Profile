@@ -14,91 +14,75 @@ showMenu("nav-toggle", "nav-menu");
 /*==================== REMOVE MENU MOBILE ====================*/
 const navLink = document.querySelectorAll(".nav__link");
 
-function linkAction() {
-  const navMenu = document.getElementById("nav-menu");
-  navMenu.classList.remove("show");
-}
-navLink.forEach((n) => n.addEventListener("click", linkAction));
+/*===== THEME TOGGLE (Unified) =====*/
+const themeBtn = document.getElementById("theme-toggle");
+const body = document.body;
+const icon = themeBtn ? themeBtn.querySelector("i") : null;
 
-/*==================== TOUCH SWIPE NAVIGATION ====================*/
-let touchStartX = 0;
-let touchEndX = 0;
-const minSwipeDistance = 50;
-let currentSection = 0;
-const sections = Array.from(document.querySelectorAll("section[id]"));
-
-function getCurrentSectionIndex() {
-  const scrollPos = window.scrollY + window.innerHeight / 2;
-  return sections.findIndex((section) => {
-    return scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight;
-  });
-}
-
-function scrollToSection(index) {
-  if (index >= 0 && index < sections.length) {
-    sections[index].scrollIntoView({ behavior: "smooth" });
+// Load saved theme on page load
+if (localStorage.getItem("theme") === "dark") {
+  body.classList.add("dark-mode");
+  if (icon) {
+    icon.classList.remove("bx-moon");
+    icon.classList.add("bx-sun");
   }
 }
 
-document.addEventListener("touchstart", (e) => {
-  touchStartX = e.changedTouches[0].screenX;
-}, { passive: true });
-
-document.addEventListener("touchend", (e) => {
-  touchEndX = e.changedTouches[0].screenX;
-  handleSwipe();
-}, { passive: true });
-
-function handleSwipe() {
-  const swipeDistance = touchEndX - touchStartX;
-  const currentIndex = getCurrentSectionIndex();
-  
-  if (Math.abs(swipeDistance) > minSwipeDistance) {
-    if (swipeDistance < 0 && currentIndex < sections.length - 1) {
-      // Swipe left - next section
-      scrollToSection(currentIndex + 1);
-    } else if (swipeDistance > 0 && currentIndex > 0) {
-      // Swipe right - previous section
-      scrollToSection(currentIndex - 1);
-    }
-  }
-}
-
-/*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
-const sections = document.querySelectorAll("section[id]");
-
-const scrollActive = () => {
-  const scrollY = window.pageYOffset;
-
-  sections.forEach((current) => {
-    const sectionHeight = current.offsetHeight;
-    const sectionTop = current.offsetTop - 72;
-    const sectionId = current.getAttribute("id");
-    const sectionLink = document.querySelector(
-      `.nav__menu a[href*=${sectionId}]`
-    );
-
-    if (sectionLink) {
-      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-        sectionLink.classList.add("active-link");
-      } else {
-        sectionLink.classList.remove("active-link");
-      }
+if (themeBtn && icon) {
+  themeBtn.addEventListener("click", () => {
+    body.classList.toggle("dark-mode");
+    const isDark = body.classList.contains("dark-mode");
+    // Change icon (moon ↔ sun)
+    if (isDark) {
+      icon.classList.remove("bx-moon");
+      icon.classList.add("bx-sun");
+      localStorage.setItem("theme", "dark");
+    } else {
+      icon.classList.remove("bx-sun");
+      icon.classList.add("bx-moon");
+      localStorage.setItem("theme", "light");
     }
   });
-};
-window.addEventListener("scroll", scrollActive);
+}
 
-/*===== SCROLL HEADER =====*/
-const scrollHeader = () => {
-  const header = document.getElementById("header");
-  if (window.scrollY >= 50) {
-    header.classList.add("scroll-header");
-  } else {
-    header.classList.remove("scroll-header");
+/* ================= RIPPLE ================= */
+(function () {
+  const colors = ['#7F77DD', '#1D9E75', '#D85A30', '#378ADD', '#D4537E'];
+  let idx = 0;
+
+  function ripple(x, y) {
+    const color = colors[idx++ % colors.length];
+
+    const r = document.createElement('div');
+    Object.assign(r.style, {
+      position: 'fixed',
+      pointerEvents: 'none',
+      borderRadius: '50%',
+      border: '2.5px solid ' + color,
+      width: '0px',
+      height: '0px',
+      left: x + 'px',
+      top: y + 'px',
+      transform: 'translate(-50%, -50%)',
+      transition: '0.6s',
+      opacity: '0.8',
+      zIndex: '9999',
+    });
+
+    document.body.appendChild(r);
+
+    requestAnimationFrame(() => {
+      r.style.width = '140px';
+      r.style.height = '140px';
+      r.style.opacity = '0';
+    });
+
+
+    setTimeout(() => r.remove(), 600);
   }
-};
-window.addEventListener("scroll", scrollHeader);
+
+  document.addEventListener('click', (e) => ripple(e.clientX, e.clientY));
+})();
 
 /*===== HEADER STYLE ON SECTION CHANGE =====*/
 const header = document.getElementById("header");
@@ -290,18 +274,44 @@ function animateParticles() {
 initParticles();
 animateParticles();
 
-/*===== THEME TOGGLE =====*/
-const themeToggle = document.getElementById("theme-toggle");
-const themeIcon = themeToggle.querySelector("i");
 
-if (themeToggle) {
-  themeToggle.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-    
-    if (document.body.classList.contains("dark-mode")) {
-      themeIcon.classList.replace("bx-moon", "bx-sun");
-    } else {
-      themeIcon.classList.replace("bx-sun", "bx-moon");
-    }
-  });
-}
+/* ================= RIPPLE ================= */
+(function () {
+  const colors = ['#7F77DD', '#1D9E75', '#D85A30', '#378ADD', '#D4537E'];
+  let idx = 0;
+
+  function ripple(x, y) {
+    const color = colors[idx++ % colors.length];
+
+    const r = document.createElement('div');
+    Object.assign(r.style, {
+      position: 'fixed',
+      pointerEvents: 'none',
+      borderRadius: '50%',
+      border: '2.5px solid ' + color,
+      width: '0px',
+      height: '0px',
+      left: x + 'px',
+      top: y + 'px',
+      transform: 'translate(-50%, -50%)',
+      transition: '0.6s',
+      opacity: '0.8',
+      zIndex: '9999',
+    });
+
+    document.body.appendChild(r);
+
+    requestAnimationFrame(() => {
+      r.style.width = '140px';
+      r.style.height = '140px';
+      r.style.opacity = '0';
+    });
+
+    setTimeout(() => r.remove(), 600);
+  }
+
+  document.addEventListener('click', (e) => ripple(e.clientX, e.clientY));
+
+})();
+
+
