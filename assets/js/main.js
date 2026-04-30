@@ -27,7 +27,135 @@ if (localStorage.getItem("theme") === "dark") {
     icon.classList.add("bx-sun");
   }
 }
+const langBtn = document.getElementById("lang-toggle");
+const i18nElements = document.querySelectorAll("[data-i18n-key]");
 
+const translations = {
+  en: {
+    "nav-home": "Home",
+    "nav-about": "About",
+    "nav-skills": "Skills",
+    "nav-work": "Work",
+    "nav-contact": "Contact",
+    "home-subtitle": "Hello, I'm",
+    "home-title": "Sujal Chhetri Karki",
+    "home-description": "A motivated IT enthusiast building useful web experiences with a strong focus on learning, accessibility, and polished design.",
+    "contact-btn": "Contact Me",
+    "download-cv": "Download CV",
+    "stat-projects": "Projects delivered",
+    "stat-experience": "Years of experience",
+    "swipe-hint": "Swipe to navigate",
+    "about-title": "About Me",
+    "about-subtitle": "I am Sujal Chhetri Karki",
+    "about-description": "Motivated IT beginner eager to launch a rewarding career in the Information Technology field. I enjoy solving problems, creating clean interfaces, and learning new tools every day.",
+    "card1-title": "Entry-level Ready",
+    "card1-desc": "Well-prepared for internships and junior developer roles.",
+    "card2-title": "Modern Web",
+    "card2-desc": "HTML, CSS, JavaScript and practical project experience.",
+    "card3-title": "Learning Focused",
+    "card3-desc": "Curious, collaborative, and always improving.",
+    "skills-title": "Skills",
+    "skills-subtitle-tech": "Technical Skills",
+    "skills-subtitle-prof": "Professional skills",
+    "work-title": "Work",
+    "work-project1-title": "T-shirt Shopping System",
+    "work-project1-desc": "PHP-based e-commerce project with product browsing and order flow.",
+    "work-project2-title": "Profile Website",
+    "work-project2-desc": "A personal portfolio website to present skills, work, and contact details.",
+    "work-project2-btn": "View Project",
+    "work-project3-title": "Student Performance Evaluation System",
+    "work-project3-desc": "A project that evaluates student performance and generates reports.",
+    "work-download": "Download Details",
+    "contact-title": "Contact",
+    "contact-tag": "Let's connect",
+    "contact-subtitle": "Message me on WhatsApp",
+    "contact-description": "Want to discuss a project, internship opportunity, or available roles? Fill the form and WhatsApp will open with your message.",
+    "placeholder-name": "Your Name",
+    "placeholder-email": "Your Email",
+    "placeholder-message": "Your Message",
+    "send-message": "Send Message",
+    "footer-title": "My linked profiles"
+  },
+  ne: {
+    "nav-home": "होम",
+    "nav-about": "बारेमा",
+    "nav-skills": "सीप",
+    "nav-work": "कार्य",
+    "nav-contact": "सम्पर्क",
+    "home-subtitle": "नमस्कार, म",
+    "home-title": "सुजल क्षेत्री कार्की",
+    "home-description": "उपयोगी वेब अनुभवहरू निर्माण गर्ने प्रेरित आईटी उत्साही जसले सिकाइ, पहुँचयोग्यता र सफा डिजाइनमा केन्द्रित छ।",
+    "contact-btn": "सम्पर्क गर्नुहोस्",
+    "download-cv": "सीवी डाउनलोड गर्नुहोस्",
+    "stat-projects": "डेलिभर गरिएका परियोजनाहरू",
+    "stat-experience": "अनुभवका वर्षहरू",
+    "swipe-hint": "नेभिगेट गर्न स्वाइप गर्नुहोस्",
+    "about-title": "मेरो बारेमा",
+    "about-subtitle": "म सुजल क्षेत्री कार्की हुँ",
+    "about-description": "एक प्रेरित आईटी शुरुआती जसले सूचना प्रविधि क्षेत्रमा सफल क्यारियर सुरु गर्न उत्सुक छ। म समस्याहरू समाधान गर्न, सफा इन्टरफेसहरू बनाउन, र हरेक दिन नयाँ उपकरणहरू सिक्न रमाउँछु।",
+    "card1-title": "प्रवेश स्तर तयार",
+    "card1-desc": "इन्टर्नशिप र ज्युनियर डेभलपर भूमिकाहरूको लागि राम्रो तयारी।",
+    "card2-title": "आधुनिक वेब",
+    "card2-desc": "HTML, CSS, JavaScript र व्यावहारिक परियोजना अनुभव।",
+    "card3-title": "अध्ययन केन्द्रित",
+    "card3-desc": "जिज्ञासु, सहकार्यशील, र सधैं सुधार गर्दै।",
+    "skills-title": "सीपहरू",
+    "skills-subtitle-tech": "प्राविधिक सीपहरू",
+    "skills-subtitle-prof": "व्यावसायिक सीपहरू",
+    "work-title": "कार्य",
+    "work-project1-title": "टी-शर्ट शपिंग सिस्टम",
+    "work-project1-desc": "उत्पादन ब्राउजिङ र अर्डर फ्लो सहित PHP-आधारित ई-कमर्स परियोजना।",
+    "work-project2-title": "प्रोफाइल वेबसाइट",
+    "work-project2-desc": "सीप, काम र सम्पर्क विवरण प्रस्तुत गर्न व्यक्तिगत पोर्टफोलियो वेबसाइट।",
+    "work-project2-btn": "परियोजना हेर्नुहोस्",
+    "work-project3-title": "विद्यार्थी प्रदर्शन मूल्याङ्कन प्रणाली",
+    "work-project3-desc": "विद्यार्थी प्रदर्शनको मूल्याङ्कन गर्ने र रिपोर्ट बनाउन परियोजना।",
+    "work-download": "विवरण डाउनलोड गर्नुहोस्",
+    "contact-title": "सम्पर्क",
+    "contact-tag": "जोडौं",
+    "contact-subtitle": "मलाई WhatsApp मा सन्देश पठाउनुहोस्",
+    "contact-description": "के तपाईं परियोजना, इन्टर्नशिप अवसर, वा उपलब्ध भूमिकाहरू बारे छलफल गर्न चाहनुहुन्छ? फाराम भर्नुहोस् र WhatsApp तपाइँको सन्देशका साथ खुल्नेछ।",
+    "placeholder-name": "तपाइँको नाम",
+    "placeholder-email": "तपाइँको इमेल",
+    "placeholder-message": "तपाइँको सन्देश",
+    "send-message": "सन्देश पठाउनुहोस्",
+    "footer-title": "मेरो लिंक गरिएको प्रोफाइलहरू"
+  }
+};
+
+const setLanguage = (lang) => {
+  i18nElements.forEach((el) => {
+    const key = el.dataset.i18nKey;
+    const attr = el.dataset.i18nAttr || "text";
+    const value = translations[lang]?.[key] || translations.en[key] || el.textContent;
+
+    if (attr === "placeholder") {
+      el.placeholder = value;
+    } else {
+      if (el.childNodes.length && el.childNodes[0].nodeType === Node.TEXT_NODE) {
+        el.childNodes[0].nodeValue = value;
+      } else {
+        el.textContent = value;
+      }
+    }
+  });
+
+  if (langBtn) {
+    langBtn.textContent = lang === "en" ? "ने" : "EN";
+  }
+
+  localStorage.setItem("lang", lang);
+};
+
+const savedLang = localStorage.getItem("lang") || "en";
+setLanguage(savedLang);
+
+if (langBtn) {
+  langBtn.addEventListener("click", () => {
+    const nextLang = (localStorage.getItem("lang") || "en") === "en" ? "ne" : "en";
+    setLanguage(nextLang);
+  });
+}
 if (themeBtn && icon) {
   themeBtn.addEventListener("click", () => {
     body.classList.toggle("dark-mode");

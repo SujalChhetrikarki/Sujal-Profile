@@ -65,19 +65,19 @@
         <div class="nav__menu" id="nav-menu">
           <ul class="nav__list">
             <li class="nav__item">
-              <a href="#home" class="nav__link active-link">Home</a>
+              <a href="#home" class="nav__link active-link" data-i18n-key="nav-home">Home</a>
             </li>
             <li class="nav__item">
-              <a href="#about" class="nav__link">About</a>
+              <a href="#about" class="nav__link" data-i18n-key="nav-about">About</a>
             </li>
             <li class="nav__item">
-              <a href="#skills" class="nav__link">Skills</a>
+              <a href="#skills" class="nav__link" data-i18n-key="nav-skills">Skills</a>
             </li>
             <li class="nav__item">
-              <a href="#work" class="nav__link">Work</a>
+              <a href="#work" class="nav__link" data-i18n-key="nav-work">Work</a>
             </li>
             <li class="nav__item">
-              <a href="#contact" class="nav__link">Contact</a>
+              <a href="#contact" class="nav__link" data-i18n-key="nav-contact">Contact</a>
             </li>
           </ul>
         </div>
@@ -86,9 +86,10 @@
         </div>
 
       </nav>
+       <button class="theme-toggle lang-toggle" id="lang-toggle" aria-label="Toggle language">ने</button>
        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-  <i class="bx bx-moon"></i>
-</button>
+         <i class="bx bx-moon"></i>
+       </button>
     </header>
 
     <main class="l-main">
@@ -103,26 +104,26 @@
         <div class="home__bg"></div>
         <div class="home__container bd-grid">
           <div class="home__data">
-            <span class="home__subtitle">Hello, I'm</span>
-            <h1 class="home__title">Sujal Chhetri Karki</h1>
-            <p class="home__description">
+            <span class="home__subtitle" data-i18n-key="home-subtitle">Hello, I'm</span>
+            <h1 class="home__title" data-i18n-key="home-title">Sujal Chhetri Karki</h1>
+            <p class="home__description" data-i18n-key="home-description">
               A motivated IT enthusiast building useful web experiences with a
               strong focus on learning, accessibility, and polished design.
             </p>
 
             <div class="home__buttons">
-              <a href="#contact" class="button">Contact Me <i class="bx bx-right-arrow-alt"></i></a>
-              <a href="assets/Sujal_Chhetri_Karki_CV.pdf" download class="button button--outline">Download CV <i class="bx bx-download"></i></a>
+            <a href="#contact" class="button"><span data-i18n-key="contact-btn">Contact Me</span> <i class="bx bx-right-arrow-alt"></i></a>
+            <a href="assets/Sujal_Chhetri_Karki_CV.pdf" download class="button button--outline"><span data-i18n-key="download-cv">Download CV</span> <i class="bx bx-download"></i></a>
             </div>
 
             <div class="home__stats">
               <div class="home__stat-card">
                 <span>2+</span>
-                <p>Projects delivered</p>
+                <p data-i18n-key="stat-projects">Projects delivered</p>
               </div>
               <div class="home__stat-card">
                 <span>1+</span>
-                <p>Years of experience</p>
+                <p data-i18n-key="stat-experience">Years of experience</p>
               </div>
             </div>
           </div>
@@ -159,7 +160,7 @@
 
         <div class="swipe-hint">
           <i class="bx bx-chevron-left"></i>
-          <span>Swipe to navigate</span>
+          <span data-i18n-key="swipe-hint">Swipe to navigate</span>
           <i class="bx bx-chevron-right"></i>
         </div>
       </section>
@@ -167,12 +168,12 @@
       <!--===== ABOUT =====-->
       <section class="about section" id="about">
         <div class="section__bg"></div>
-        <h2 class="section-title">About Me</h2>
+        <h2 class="section-title" data-i18n-key="about-title">About Me</h2>
 
         <div class="about__container bd-grid">
           <div class="about__content">
-            <h2 class="about__subtitle">I am Sujal Chhetri Karki</h2>
-            <p class="about__description">
+            <h2 class="about__subtitle" data-i18n-key="about-subtitle">I am Sujal Chhetri Karki</h2>
+            <p class="about__description" data-i18n-key="about-description">
               Motivated IT beginner eager to launch a rewarding career in the
               Information Technology field. I enjoy solving problems, creating
               clean interfaces, and learning new tools every day.
@@ -181,18 +182,18 @@
             <div class="about__cards">
               <article class="about__card">
                 <i class="bx bx-briefcase about__card-icon"></i>
-                <h3>Entry-level Ready</h3>
-                <p>Well-prepared for internships and junior developer roles.</p>
+                <h3 data-i18n-key="card1-title">Entry-level Ready</h3>
+                <p data-i18n-key="card1-desc">Well-prepared for internships and junior developer roles.</p>
               </article>
               <article class="about__card">
                 <i class="bx bx-code about__card-icon"></i>
-                <h3>Modern Web</h3>
-                <p>HTML, CSS, JavaScript and practical project experience.</p>
+                <h3 data-i18n-key="card2-title">Modern Web</h3>
+                <p data-i18n-key="card2-desc">HTML, CSS, JavaScript and practical project experience.</p>
               </article>
               <article class="about__card">
                 <i class="bx bx-heart about__card-icon"></i>
-                <h3>Learning Focused</h3>
-                <p>Curious, collaborative, and always improving.</p>
+                <h3 data-i18n-key="card3-title">Learning Focused</h3>
+                <p data-i18n-key="card3-desc">Curious, collaborative, and always improving.</p>
               </article>
             </div>
           </div>
@@ -206,11 +207,11 @@
       <!--===== SKILLS =====-->
       <section class="skills section" id="skills">
         <div class="section__bg"></div>
-        <h2 class="section-title">Skills</h2>
+        <h2 class="section-title" data-i18n-key="skills-title">Skills</h2>
 
         <div class="skills__container bd-grid">
           <div class="skills__content">
-            <h3 class="skills__subtitle">Technical Skills</h3>
+            <h3 class="skills__subtitle" data-i18n-key="skills-subtitle-tech">Technical Skills</h3>
             <div class="skills__list">
               <span>HTML5</span>
               <span>CSS3</span>
@@ -219,7 +220,7 @@
               <span>CMS</span>
             </div>
 
-            <h3 class="skills__subtitle">Professional skills</h3>
+            <h3 class="skills__subtitle" data-i18n-key="skills-subtitle-prof">Professional skills</h3>
             <ul class="skills__points">
               <li>Design thinking</li>
               <li>Problem-solving</li>
@@ -274,33 +275,33 @@
       <!--===== WORK =====-->
       <section class="work section" id="work">
         <div class="section__bg"></div>
-        <h2 class="section-title">Work</h2>
+        <h2 class="section-title" data-i18n-key="work-title">Work</h2>
 
         <div class="work__container bd-grid">
           <article class="work__card">
             <img src="assets/img/PROJECT 1.png" alt="T-shirt shopping system" class="work__img" />
             <div class="work__overlay">
-              <h3>T-shirt Shopping System</h3>
-              <p>PHP-based e-commerce project with product browsing and order flow.</p>
-              <a href="assets/T-shirt Shopping System.pdf" download class="button button--small">Download Details</a>
+              <h3 data-i18n-key="work-project1-title">T-shirt Shopping System</h3>
+              <p data-i18n-key="work-project1-desc">PHP-based e-commerce project with product browsing and order flow.</p>
+              <a href="assets/T-shirt Shopping System.pdf" download class="button button--small"><span data-i18n-key="work-download">Download Details</span></a>
             </div>
           </article>
 
           <article class="work__card">
             <img src="assets/img/PROJECT 2.png" alt="Profile website" class="work__img" />
             <div class="work__overlay">
-              <h3>Profile Website</h3>
-              <p>A personal portfolio website to present skills, work, and contact details.</p>
-              <a href="assets/profile.html" class="button button--small">View Project</a>
+              <h3 data-i18n-key="work-project2-title">Profile Website</h3>
+              <p data-i18n-key="work-project2-desc">A personal portfolio website to present skills, work, and contact details.</p>
+              <a href="assets/profile.html" class="button button--small"><span data-i18n-key="work-project2-btn">View Project</span></a>
             </div>
           </article>
 
           <article class="work__card">
             <img src="assets/img/PROJECT 3.png" alt="Student evaluation system" class="work__img" />
             <div class="work__overlay">
-              <h3>Student Performance Evaluation System</h3>
-              <p>A project that evaluates student performance and generates reports.</p>
-              <a href="assets/Student Performance Evaluation System.pdf" download class="button button--small">Download Details</a>
+              <h3 data-i18n-key="work-project3-title">Student Performance Evaluation System</h3>
+              <p data-i18n-key="work-project3-desc">A project that evaluates student performance and generates reports.</p>
+              <a href="assets/Student Performance Evaluation System.pdf" download class="button button--small"><span data-i18n-key="work-download">Download Details</span></a>
             </div>
           </article>
         </div>
@@ -309,13 +310,13 @@
       <!--===== CONTACT =====-->
       <section class="contact section" id="contact">
         <div class="section__bg"></div>
-        <h2 class="section-title">Contact</h2>
+        <h2 class="section-title" data-i18n-key="contact-title">Contact</h2>
 
         <div class="contact__container bd-grid">
           <div class="contact__card contact__info">
-            <span class="contact__tag">Let's connect</span>
-            <h3 class="contact__subtitle">Message me on WhatsApp</h3>
-            <p class="contact__description">
+            <span class="contact__tag" data-i18n-key="contact-tag">Let's connect</span>
+            <h3 class="contact__subtitle" data-i18n-key="contact-subtitle">Message me on WhatsApp</h3>
+            <p class="contact__description" data-i18n-key="contact-description">
               Want to discuss a project, internship opportunity, or available
               roles? Fill the form and WhatsApp will open with your message.
             </p>
@@ -325,10 +326,10 @@
             </div>
           </div>
           <form id="contact-form" class="contact__form">
-            <input type="text" name="name" placeholder="Your Name" class="contact__input" required />
-            <input type="email" name="email" placeholder="Your Email" class="contact__input" required />
-            <textarea name="message" placeholder="Your Message" rows="6" class="contact__input" required></textarea>
-            <button type="submit" class="contact__button button">Send Message <i class="bx bx-send"></i></button>
+            <input type="text" name="name" placeholder="Your Name" class="contact__input" data-i18n-key="placeholder-name" data-i18n-attr="placeholder" required />
+            <input type="email" name="email" placeholder="Your Email" class="contact__input" data-i18n-key="placeholder-email" data-i18n-attr="placeholder" required />
+            <textarea name="message" placeholder="Your Message" rows="6" class="contact__input" data-i18n-key="placeholder-message" data-i18n-attr="placeholder" required></textarea>
+            <button type="submit" class="contact__button button"><span data-i18n-key="send-message">Send Message</span> <i class="bx bx-send"></i></button>
             <p class="contact__notice" aria-live="polite"></p>
           </form>
         </div>
@@ -337,7 +338,7 @@
 
     <!--===== FOOTER =====-->
     <footer class="footer">
-      <p class="footer__title">My linked profiles</p>
+      <p class="footer__title" data-i18n-key="footer-title">My linked profiles</p>
       <div class="footer__social">
         <a href="https://www.facebook.com/profile.php?id=100072413443915" class="footer__icon" aria-label="Facebook">
           <i class="bx bxl-facebook"></i>

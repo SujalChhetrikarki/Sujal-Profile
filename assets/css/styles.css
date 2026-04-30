@@ -253,15 +253,24 @@ textarea {
   transition: all 0.3s ease;
 }
 
-.theme-toggle:hover {
+.theme-toggle:hover,
+.lang-toggle:hover {
   background: linear-gradient(135deg, var(--first-color), var(--second-color));
   color: #fff;
   transform: rotate(15deg);
 }
 
+.lang-toggle {
+  right: 6rem;
+}
+
 @media screen and (max-width: 575px) {
   .theme-toggle {
     right: 4.5rem;
+  }
+
+  .lang-toggle {
+    right: 7.5rem;
   }
 
   .home__description {
