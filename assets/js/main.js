@@ -13,6 +13,41 @@ const showMenu = (toggleId, navId) => {
 };
 showMenu("nav-toggle", "nav-menu");
 
+/*===== LOADING SCREEN =====*/
+window.addEventListener('load', () => {
+  const loadingScreen = document.getElementById('loading-screen');
+  const loadingText = document.querySelector('.terminal-text');
+  if (loadingText) {
+    typeWriter(loadingText, "Loading Sujal's portofolio...", 100);
+  }
+  setTimeout(() => {
+    loadingScreen.classList.add('hidden');
+  }, 2500);
+});
+
+/*===== TYPING ANIMATION FOR LOGO =====*/
+const typeWriter = (element, text, speed = 100) => {
+  let i = 0;
+  element.textContent = '';
+  const timer = setInterval(() => {
+    if (i < text.length) {
+      element.textContent += text.charAt(i);
+      i++;
+    } else {
+      clearInterval(timer);
+    }
+  }, speed);
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  const terminalName = document.querySelector('.terminal-name');
+  if (terminalName) {
+    setTimeout(() => {
+      typeWriter(terminalName, 'sujal', 150);
+    }, 3000); // Start after loading screen
+  }
+});
+
 /*==================== REMOVE MENU MOBILE ====================*/
 const navLink = document.querySelectorAll(".nav__link");
 const navMenu = document.getElementById("nav-menu");
@@ -76,7 +111,7 @@ const translations = {
     "work-project1-title": "T-shirt Shopping System",
     "work-project1-desc": "PHP-based e-commerce project with product browsing and order flow.",
     "work-project2-title": "Profile Website",
-    "work-project2-desc": "A personal portfolio website to present skills, work, and contact details.",
+    "work-project2-desc": "A personal portofolio website to present skills, work, and contact details.",
     "work-project2-btn": "View Project",
     "work-project3-title": "Student Performance Evaluation System",
     "work-project3-desc": "A project that evaluates student performance and generates reports.",
@@ -235,9 +270,19 @@ if (themeBtn && icon) {
   );
 })();
 
+/*===== SCROLL UP =====*/
+const scrollUp = () => {
+  const scrollUpBtn = document.getElementById('scroll-up');
+  if (window.scrollY >= 200) scrollUpBtn.classList.add('show');
+  else scrollUpBtn.classList.remove('show');
+};
+
+window.addEventListener('scroll', scrollUp);
+
 /*===== HEADER STYLE ON SECTION CHANGE =====*/
 const header = document.getElementById("header");
 const navLogo = document.querySelector(".nav__logo");
+const sections = document.querySelectorAll('section');
 
 const updateHeaderForSection = () => {
   const scrollPos = window.scrollY + window.innerHeight / 3;
@@ -317,112 +362,24 @@ sr.reveal(
   { interval: 100 }
 );
 
-/*===== PARTICLE ANIMATION =====*/
-const canvas = document.getElementById("particles-canvas");
-const ctx = canvas.getContext("2d");
-
-let particles = [];
-const particleCount = 60;
-const connectionDistance = 120;
-const mouseDistance = 150;
-
-let mouse = { x: null, y: null };
-
-function resizeCanvas() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-}
-
-window.addEventListener("resize", resizeCanvas);
-resizeCanvas();
-
-window.addEventListener("mousemove", (e) => {
-  mouse.x = e.x;
-  mouse.y = e.y;
-});
-
-window.addEventListener("mouseout", () => {
-  mouse.x = null;
-  mouse.y = null;
-});
-
-class Particle {
-  constructor() {
-    this.x = Math.random() * canvas.width;
-    this.y = Math.random() * canvas.height;
-    this.vx = (Math.random() - 0.5) * 1.5;
-    this.vy = (Math.random() - 0.5) * 1.5;
-    this.size = Math.random() * 3 + 1;
-    this.color = `rgba(99, 102, 241, ${Math.random() * 0.5 + 0.2})`;
-  }
-
-  update() {
-    this.x += this.vx;
-    this.y += this.vy;
-
-    if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-    if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-
-    if (mouse.x !== null) {
-      const dx = mouse.x - this.x;
-      const dy = mouse.y - this.y;
-      const distance = Math.sqrt(dx * dx + dy * dy);
-      
-      if (distance < mouseDistance) {
-        const forceDirectionX = dx / distance;
-        const forceDirectionY = dy / distance;
-        const force = (mouseDistance - distance) / mouseDistance;
-        const directionX = forceDirectionX * force * 3;
-        const directionY = forceDirectionY * force * 3;
-        
-        this.x -= directionX;
-        this.y -= directionY;
-      }
+/*===== ANIMATED SKILL BARS =====*/
+const skillsSection = document.querySelector('.skills');
+const skillsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const bars = entry.target.querySelectorAll('.skills__bar');
+      bars.forEach(bar => {
+        const width = bar.classList.contains('skills__html') ? '95%' :
+                      bar.classList.contains('skills__php') ? '75%' :
+                      bar.classList.contains('skills__js') ? '65%' :
+                      bar.classList.contains('skills__cms') ? '85%' : '0%';
+        bar.style.width = width;
+      });
+      skillsObserver.unobserve(entry.target);
     }
-  }
+  });
+}, { threshold: 0.5 });
 
-  draw() {
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-    ctx.fillStyle = this.color;
-    ctx.fill();
-  }
-}
-
-function initParticles() {
-  particles = [];
-  for (let i = 0; i < particleCount; i++) {
-    particles.push(new Particle());
-  }
-}
-
-function animateParticles() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  
-  for (let i = 0; i < particles.length; i++) {
-    particles[i].update();
-    particles[i].draw();
-
-    for (let j = i + 1; j < particles.length; j++) {
-      const dx = particles[i].x - particles[j].x;
-      const dy = particles[i].y - particles[j].y;
-      const distance = Math.sqrt(dx * dx + dy * dy);
-
-      if (distance < connectionDistance) {
-        const opacity = 1 - distance / connectionDistance;
-        ctx.beginPath();
-        ctx.strokeStyle = `rgba(99, 102, 241, ${opacity * 0.3})`;
-        ctx.lineWidth = 1;
-        ctx.moveTo(particles[i].x, particles[i].y);
-        ctx.lineTo(particles[j].x, particles[j].y);
-        ctx.stroke();
-      }
-    }
-  }
-  requestAnimationFrame(animateParticles);
-}
-
-initParticles();
-animateParticles();
+if (skillsSection) skillsObserver.observe(skillsSection);
 
 

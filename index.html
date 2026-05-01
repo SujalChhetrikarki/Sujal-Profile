@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="Portofolio of Sujal Chhetri Karki, a motivated IT enthusiast specializing in web development with HTML, CSS, JavaScript, and PHP." />
+    <meta name="keywords" content="Sujal Chhetri Karki, portofolio, web developer, IT enthusiast, HTML, CSS, JavaScript, PHP" />
+    <meta name="author" content="Sujal Chhetri Karki" />
 
     <link rel="stylesheet" href="assets/css/styles.css" />
 
@@ -12,10 +15,21 @@
       rel="stylesheet"
     />
 
-    <title>Sujal Chhetri Karki | Portfolio</title>
+    <title>Sujal Chhetri Karki | Portofolio</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='98' fill='%23042C53' stroke='%23185FA5' stroke-width='2'/%3E%3Ccircle cx='100' cy='100' r='84' fill='none' stroke='%230C447C' stroke-width='1'/%3E%3Ccircle cx='100' cy='100' r='98' fill='none' stroke='%23378ADD' stroke-width='0.8' stroke-dasharray='4 8' opacity='0.4'/%3E%3Cline x1='100' y1='2' x2='100' y2='14' stroke='%23378ADD' stroke-width='2' stroke-linecap='round' opacity='0.6'/%3E%3Cline x1='100' y1='186' x2='100' y2='198' stroke='%23378ADD' stroke-width='2' stroke-linecap='round' opacity='0.6'/%3E%3Cline x1='2' y1='100' x2='14' y2='100' stroke='%23378ADD' stroke-width='2' stroke-linecap='round' opacity='0.6'/%3E%3Cline x1='186' y1='100' x2='198' y2='100' stroke='%23378ADD' stroke-width='2' stroke-linecap='round' opacity='0.6'/%3E%3Cpath d='M124 46 C124 28 76 28 76 58 C76 80 124 80 124 108 C124 136 76 136 76 118' fill='none' stroke='%235DCAA5' stroke-width='14' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M124 46 C124 28 76 28 76 58 C76 80 124 80 124 108 C124 136 76 136 76 118' fill='none' stroke='%23E1F5EE' stroke-width='4' stroke-linecap='round' stroke-linejoin='round' opacity='0.4'/%3E%3Ccircle cx='124' cy='46' r='6' fill='%235DCAA5' opacity='0.9'/%3E%3Ccircle cx='76' cy='118' r='6' fill='%235DCAA5' opacity='0.9'/%3E%3C/svg%3E" />
   </head>
   <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+      <div class="loading-content">
+        <div class="terminal-loader">
+          <span class="terminal-prompt">$</span>
+          <span class="terminal-text"></span>
+          <span class="terminal-cursor"></span>
+        </div>
+      </div>
+    </div>
+
     <!--===== HEADER =====-->
     <header class="l-header" id="header">
       <nav class="nav bd-grid">
@@ -57,7 +71,6 @@
     <main class="l-main">
       <!--===== HOME =====-->
       <section class="home section" id="home">
-        <canvas id="particles-canvas"></canvas>
         <div class="floating-shapes">
           <div class="shape shape-1"></div>
           <div class="shape shape-2"></div>
@@ -253,7 +266,7 @@
             <img src="assets/img/PROJECT 2.png" alt="Profile website" class="work__img" />
             <div class="work__overlay">
               <h3 data-i18n-key="work-project2-title">Profile Website</h3>
-              <p data-i18n-key="work-project2-desc">A personal portfolio website to present skills, work, and contact details.</p>
+              <p data-i18n-key="work-project2-desc">A personal portofolio website to present skills, work, and contact details.</p>
               <a href="assets/profile.html" class="button button--small"><span data-i18n-key="work-project2-btn">View Project</span></a>
             </div>
           </article>
@@ -297,6 +310,11 @@
         </div>
       </section>
     </main>
+
+    <!--===== SCROLL UP =====-->
+    <a href="#home" class="scrollup" id="scroll-up" aria-label="Scroll to top">
+      <i class="bx bx-up-arrow-alt"></i>
+    </a>
 
     <!--===== FOOTER =====-->
     <footer class="footer">
